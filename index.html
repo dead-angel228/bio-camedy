@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Био</title>
+    <style>
+        body {
+            background-image: url("https://0x0.st/8PZ3.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: rgba(0, 0, 0, 0.9); /* Темнее фон */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'monospace', monospace;
+            color: white; /* Весь текст ярко-белый */
+            transition: background-image 0.5s ease;
+        }
+
+        .content-container {
+            background-color: rgba(0, 0, 0, 0.8); /* Ещё темнее контейнер */
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #444; /* Более тёмная рамка */
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 700px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Белая тень */
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 25px;
+            border: 3px solid #444; /* Более тёмная рамка */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Белая тень */
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 2.2em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Ярко-белая тень */
+            color: white; /* Ярко-белый цвет текста */
+        }
+
+        p {
+            white-space: pre-line;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Ярко-белая тень */
+            font-size: 1.2em;
+            margin: 0 0 25px 0;
+            line-height: 1.6;
+            color: white; /* Ярко-белый цвет текста */
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #444; /* Более тёмная рамка */
+            border-radius: 10px;
+            padding: 15px 30px;
+            color: white; /* Ярко-белый цвет текста */
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Белая тень */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-button:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Белый фон при наведении */
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Белая тень при наведении */
+        }
+
+        .social-button i {
+            font-size: 1.4em;
+            color: white; /* Ярко-белый цвет иконок */
+        }
+    </style>
+    <!-- Иконки для кнопок (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="content-container">
+        <img src="https://0x0.st/8PZY.jpg alt="Аватар" class="avatar">
+        <h2>bio camedy</h2>
+        <p>
+            About me
+   Age: 15
+   Birthday: 11.07
+   Country: Kazakhstan
+   My hobby: Pubg
+   I do not advocate for organizations banned in the KZ, and moreover, I do not call for them and do not support their activities.
+        </p>
+        <div class="social-buttons">
+            <a href="https://t.me/cam3dy" class="social-button" target="_blank">
+                <i class="fab fa-telegram"></i> Telegram
+            </a>
+            <a href="https://www.tiktok.com/@pechka321" class="social-button" target="_blank">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+            <!-- Кнопка Discord -->
+            <a href="https://discord.gg/pechka_1488" class="social-button" target="_blank">
+                <i class="fab fa-discord"></i> Discord
+            </a>
+        </div>
+    </div>
+</body>
+</html>
