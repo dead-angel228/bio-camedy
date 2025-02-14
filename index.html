@@ -4,107 +4,231 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Био</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Плавная прокрутка для всей страницы */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Кастомный скроллбар */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #00ffcc, #0077ff);
+            border-radius: 4px;
+        }
+
         body {
-            background-image: url("https://0x0.st/8PZ3.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-color: rgba(0, 0, 0, 0.9); /* Темнее фон */
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'monospace', monospace;
-            color: white; /* Весь текст ярко-белый */
-            transition: background-image 0.5s ease;
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(44, 62, 80, 0.8)), url('https://0x0.st/8PZ3.jpg') no-repeat center center/cover;
+            overflow: auto;
+            position: relative;
         }
-
+        
         .content-container {
-            background-color: rgba(0, 0, 0, 0.8); /* Ещё темнее контейнер */
-            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
             border-radius: 20px;
-            border: 1px solid #444; /* Более тёмная рамка */
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
             width: 90%;
             max-width: 700px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Белая тень */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+            margin: 50px auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
         .avatar {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 25px;
-            border: 3px solid #444; /* Более тёмная рамка */
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Белая тень */
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Крылья ангела */
+        .wings {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px; /* Размер крыльев */
+            height: auto;
+            z-index: 1;
+            opacity: 0.8;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-10px);
+            }
         }
 
         h2 {
-            margin-bottom: 15px;
-            font-size: 2.2em;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Ярко-белая тень */
-            color: white; /* Ярко-белый цвет текста */
+            margin: 0 0 20px;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #00ffcc, #0077ff, #00ffcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientFlow 3s linear infinite;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 119, 255, 0.8);
         }
 
         p {
             white-space: pre-line;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Ярко-белая тень */
-            font-size: 1.2em;
-            margin: 0 0 25px 0;
+            font-size: 1.1em;
+            margin: 0 0 25px;
             line-height: 1.6;
-            color: white; /* Ярко-белый цвет текста */
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 119, 255, 0.8);
         }
 
         .social-buttons {
             display: flex;
             gap: 20px;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .social-button {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 2px solid #444; /* Более тёмная рамка */
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
             padding: 15px 30px;
-            color: white; /* Ярко-белый цвет текста */
+            color: white;
             text-decoration: none;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Белая тень */
+            font-size: 1.1em;
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
         .social-button:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Белый фон при наведении */
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Белая тень при наведении */
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
         }
 
         .social-button i {
-            font-size: 1.4em;
-            color: white; /* Ярко-белый цвет иконок */
+            font-size: 1.3em;
+            color: #00ffcc;
+        }
+
+        .social-button span {
+            color: white;
+        }
+
+        /* Кнопка прокрутки вверх */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #00ffcc, #0077ff);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-top:hover {
+            opacity: 0.9;
+        }
+
+        /* Анимация появления контейнера */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Анимация градиента для текста */
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Анимация фона */
+        @keyframes moveBackground {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        body {
+            animation: moveBackground 20s infinite alternate;
         }
     </style>
-    <!-- Иконки для кнопок (FontAwesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="content-container">
-        <img src="https://0x0.st/8PZY.jpg" alt="Аватар" class="avatar">
+        <div class="avatar-wrapper">
+            <img src="https://0x0.st/8PZY.jpg" alt="Аватар" class="avatar">
+        </div>
         <h2>bio camedy</h2>
         <p>
-            About me
+   About me
+
    Age: 15
    Birthday: 11.07
    Country: Kazakhstan
@@ -112,15 +236,28 @@
    I do not advocate for organizations banned in the KZ, and moreover, I do not call for them and do not support their activities.
         </p>
         <div class="social-buttons">
-            <a href="https://t.me/cam3dy" class="social-button" target="_blank">
-                <i class="fab fa-telegram"></i> Telegram
+            <a href="https://t.me/@cam3dy" class="social-button" target="_blank">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
             </a>
-            
             <a href="https://www.tiktok.com/@pechka321" class="social-button" target="_blank">
-                <i class="fab fa-tiktok"></i> TikTok
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
             </a>
-        
         </div>
     </div>
+
+    <!-- Кнопка для прокрутки вверх -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Показать/скрыть кнопку прокрутки вверх
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-top');
+            scrollButton.style.display = window.scrollY > 500 ? 'block' : 'none';
+        });
+    </script>
 </body>
 </html>
